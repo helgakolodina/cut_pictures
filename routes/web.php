@@ -1,10 +1,5 @@
 <?php
 
-Route::get('/test', function () {
-    echo 'test';
-    phpinfo();
-});
-
 Route::get('/pictures_form', 'PicturesController@form')->name('form');
 
 Route::post('/pictures_save', 'PicturesController@save')->name('save');

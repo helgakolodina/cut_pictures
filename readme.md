@@ -1,5 +1,16 @@
 Приложение работает на порту 8000.
 
+Для запуска приложения выполните команды:
+
+	docker-compose build app
+
+	docker-compose up -d
+
+	docker-compose exec app composer install
+
+	docker-compose exec app php artisan key:generate
+
+
 Форма для загрузки картинки для перерезки находиться по адресу /pictures_form.
 Необходимо обязательно заполнить название и подкрепить саму картинку.
 
@@ -8,8 +19,3 @@
 
 Детльная страница части картинки находится на /image_slice/{pict_id}/{slice_id} (pict_id - айди картинки в базе, 
 slice_id - айди части картинки в базе). На данной странице есть кнопка для скачивания части картинки.
-
-
-
-
-# cut_pictures
