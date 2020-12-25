@@ -86,4 +86,22 @@ class PicturesController extends Controller
 
 		return view('slice',["slice" => $slice]);
 	}
+
+	function slice_list($pict_id) 
+	{
+		$picture = Picture::findOrFail($pict_id);
+		$slices = $picture->slices()->get();
+		$slicePath = [];
+		foreach ($slices as $slice) {
+			$slicePath[] = route('download_slice',['slice_id' => $slice->id]);
+		}
+
+		return response()->json($slicePath);
+	}
+
+	function download_slice($slice_id) 
+	{
+		$slice = Slice::findOrFail($slice_id);
+		return response()->download(public_path().$slice->path);
+	}
 }
