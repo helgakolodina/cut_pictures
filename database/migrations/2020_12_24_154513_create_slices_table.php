@@ -17,7 +17,6 @@ class CreateSlicesTable extends Migration
             $table->id();
 			$table->integer('number');
 			$table->string('path');
-			//$table->integer('picture_id');
             $table->timestamps();
 			$table->unsignedBigInteger('picture_id');
 			$table->foreign('picture_id')->references('id')->on('pictures');
