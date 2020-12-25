@@ -74,7 +74,7 @@ class PicturesController extends Controller
 	function image($pict_id) 
 	{
 		
-		$picture = Picture::find($pict_id);
+		$picture = Picture::findOrFail($pict_id);
 		$slices = $picture->slices()->get();
 
 		return view('image',['pictures' => $picture, "slices" => $slices]);
@@ -82,7 +82,7 @@ class PicturesController extends Controller
 
 	function slice($pict_id, $slice_id) 
 	{
-		$slice = Slice::find($slice_id);
+		$slice = Slice::findOrFail($slice_id);
 
 		return view('slice',["slice" => $slice]);
 	}
