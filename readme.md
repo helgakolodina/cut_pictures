@@ -1,14 +1,24 @@
 Приложение работает на порту 8000.
 
-Для запуска приложения выполните команды:
+Для запуска приложения скорипуйте файл настроек из шаблона:
+	
+	cp .env.example .env
+
+Запустите сборку docker:
 
 	docker-compose build app
 
 	docker-compose up -d
 
+Соберите приложение Laravel внутри контейнера:
+
 	docker-compose exec app composer install
 
 	docker-compose exec app php artisan key:generate
+
+Создайте таблицы в базе данных:
+
+	docker-compose exec app php artisan migrate
 
 
 Форма для загрузки картинки для перерезки находиться по адресу /pictures_form.
@@ -23,3 +33,4 @@ slice_id - айди части картинки в базе). На данной 
 Api: 
 Для того, чтобы получить список ссылок для скачивания частей находится по адресу /slice_list_by_picture_id/{pict_id}/  
 (pict_id - айди картинки в базе)
+
